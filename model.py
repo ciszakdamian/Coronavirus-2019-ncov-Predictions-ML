@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier
 import pickle
 import os
 
@@ -33,19 +33,3 @@ class Model:
             return model
         except IOError:
             print('Error: Model not exist ' + self.path + '/' + name)
-
-
-# # wczytanie danych
-# dataset = pd.read_csv('2019-nCoV.csv')
-#
-# # usuniecie zbednych danych i skopiowanie etykiety
-# f = dataset.drop(['zgony', 'data'], axis=1)
-# l = dataset['zgony']
-#
-# deaths = Model(f, l)
-#
-# deaths.test()
-#
-# print(deaths.dump('deaths.p'))
-#
-# print(deaths.load('deaths.p'))
