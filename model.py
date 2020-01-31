@@ -1,6 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
+import pickle
+import os
 
 
 class Model:
@@ -16,6 +18,12 @@ class Model:
         df = pd.DataFrame({'Actual': self.y_test, 'Predicted': y_pred})
         print(df)
 
+    def dump(self, name):
+        path = 'models'
+        if not os.path.exists(path):
+            os.makedirs(path)
+        pickle.dump(self.model, open(path + '/' + name, 'wb'))
+
 # wczytanie danych
 dataset = pd.read_csv('2019-nCoV.csv')
 
@@ -26,3 +34,4 @@ l = dataset['zgony']
 deaths = Model(f, l)
 
 deaths.test()
+deaths.dump('zgony.p')
