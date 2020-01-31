@@ -10,7 +10,7 @@ l = dataset['zgony']
 
 deaths = Model(f, l)
 print(deaths.test())
-deaths.dump('deaths.p')
+print(deaths.dump('deaths.p'))
 
 model = deaths.load('deaths.p')
 
