@@ -17,9 +17,3 @@ class Data:
         labels = dataset['Death']
         return labels
 
-
-csv = Data('dataset/2019_nCoV_20200121_20200130.csv')
-f = csv.labels()
-print(f.head())
-l = csv.labels()
-print(l.head())

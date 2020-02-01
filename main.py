@@ -1,12 +1,12 @@
 from model import Model
+from data import Data
 import pandas as pd
 
-dataset = pd.read_csv('2019-nCoV.csv')
+csv = Data('dataset/2019_nCoV_20200121_20200130.csv')
+features = csv.features()
+labels = csv.labels()
 
-f = dataset.drop(['zgony', 'data'], axis=1)
-l = dataset['zgony']
-
-deaths = Model(f, l)
+deaths = Model(features, labels)
 
 print("#Model test:")
 print(deaths.test())
