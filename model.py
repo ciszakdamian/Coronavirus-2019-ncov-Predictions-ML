@@ -1,6 +1,6 @@
 import pandas as pd
+from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
 import pickle
 import os
 
@@ -9,9 +9,9 @@ class Model:
     path = 'models'
 
     def __init__(self, features, labels):
-        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(features, labels, test_size=0.1,
+        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(features, labels, test_size=0.2,
                                                                                 random_state=0)
-        self.model = DecisionTreeClassifier()
+        self.model = LinearRegression()
         self.model.fit(self.x_train, self.y_train)
 
     def test(self):
