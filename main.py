@@ -26,6 +26,7 @@ while not condition:
 
     predicted_deaths = model.predict(check)
     predicted_deaths = str(predicted_deaths).strip('[]')
+    predicted_deaths = str(round(float(predicted_deaths)))
 
     print('Predicted deaths: '+predicted_deaths)
     option = input('\nDo you want repeat prediction? y/n: ')
